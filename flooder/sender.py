@@ -14,6 +14,7 @@ message = str(input(Fore.YELLOW + 'Input message: '))
 msg_from = str(input('Input your email: '))
 password = getpass(Fore.RED + 'Input password: ')
 msg_to = str(input(Fore.YELLOW + 'Input victim email: '))
+theme_of_post = str(input('Input theme of post: '))
 number_of_cycles = int(input(Fore.GREEN + 'Input number of cycles: '))
 
 
@@ -22,6 +23,7 @@ def send():
         msg = MIMEMultipart()
         msg['From'] = msg_from
         msg['To'] = msg_to
+        msg['Subject'] = theme_of_post
         if '@' in msg_from and '@' in msg_to:
             for i in range(1,number_of_cycles + 1):
                 msg.attach(MIMEText(message, 'plain'))
