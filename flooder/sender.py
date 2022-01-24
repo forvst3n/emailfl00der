@@ -20,11 +20,11 @@ number_of_cycles = int(input(Fore.GREEN + 'Input number of cycles: '))
 
 def send():
     try:
-        msg = MIMEMultipart()
-        msg['From'] = msg_from
-        msg['To'] = msg_to
-        msg['Subject'] = theme_of_post
         if '@' in msg_from and '@' in msg_to:
+            msg = MIMEMultipart()
+            msg['From'] = msg_from
+            msg['To'] = msg_to
+            msg['Subject'] = theme_of_post
             for i in range(1,number_of_cycles + 1):
                 msg.attach(MIMEText(message, 'plain'))
                 server = smtplib.SMTP('smtp.gmail.com: 587')
